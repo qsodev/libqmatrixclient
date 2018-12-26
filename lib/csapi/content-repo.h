@@ -6,8 +6,8 @@
 
 #include "jobs/basejob.h"
 
-#include "converters.h"
 #include <QtCore/QIODevice>
+#include "converters.h"
 
 namespace QMatrixClient
 {
@@ -18,13 +18,13 @@ namespace QMatrixClient
     {
         public:
             /*! Upload some content to the content repository.
+             * \param contentType
+             *   The content type of the file being uploaded
              * \param content
              * \param filename
              *   The name of the file being uploaded
-             * \param contentType
-             *   The content type of the file being uploaded
              */
-            explicit UploadContentJob(QIODevice* content, const QString& filename = {}, const QString& contentType = {});
+            explicit UploadContentJob(const QString& contentType, QIODevice* content, const QString& filename = {});
             ~UploadContentJob() override;
 
             // Result properties

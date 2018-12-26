@@ -28,7 +28,7 @@ BaseJob::Query queryToUploadContent(const QString& filename)
 
 static const auto UploadContentJobName = QStringLiteral("UploadContentJob");
 
-UploadContentJob::UploadContentJob(QIODevice* content, const QString& filename, const QString& contentType)
+UploadContentJob::UploadContentJob(const QString& contentType, QIODevice* content, const QString& filename)
     : BaseJob(HttpVerb::Post, UploadContentJobName,
         basePath % "/upload",
         queryToUploadContent(filename))
